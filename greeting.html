@@ -16,18 +16,28 @@
 	<script type="text/babel">
 
 		class App extends React.Component {
-				render() {
-					return (
-						<div>
-							<h1>Welcome to AppWorld</h1>
-							<p>Please enjoy your stay!</p>
-						</div>
-					)
+			
+			constructor(props) {
+				super(props);
+				this.state = {
+					date: new Date()
 				}
+			}
+
+			render() {
+				return (
+					<div>
+						<h1>Hi {this.props.name}, Welcome to AppWorld!</h1>
+						<p>Please enjoy your stay!</p>
+						<p>{this.state.date.toLocaleTimeString('en-US')}</p>
+					</div>
+				)
+			}
+
 		}
 
 		ReactDOM.render(
-			<App />,
+			<App name='John' />,
 			document.getElementById('app')
 		);
 
